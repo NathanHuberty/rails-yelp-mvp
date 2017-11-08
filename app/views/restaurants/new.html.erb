@@ -1,0 +1,28 @@
+
+<h1>Nouveau restaurant</h1>
+
+<!--
+<%= form_for(@restaurant) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+
+  <%= f.submit %>
+<% end %> -->
+
+
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :name, hint: 'Check if it does not exist first' %>
+  <%= f.input :address %>
+  <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"] %>
+  <%= f.input :phone_number, placeholder: '01 02 03 04 05'%>
+  <%= f.button :submit %>
+<% end %>
