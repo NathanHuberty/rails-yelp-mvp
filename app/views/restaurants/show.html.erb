@@ -5,6 +5,12 @@
 <p><%= @restaurant.address %></p>
 <p><%= @restaurant.category %></p>
 
-<%= link_to "Laisser un avis sur le restaurant", new_restaurant_review_path(@restaurant) %>
+<p><%= link_to "Laisser un avis sur le restaurant", new_restaurant_review_path(@restaurant) %></p>
+<p><%= link_to "Liste des restaurants", restaurants_path %></p>
+<br>
 
-<%= link_to "Liste des restaurants", restaurants_path %>
+<% @restaurant.reviews.each do |review| %>
+  <h4><%= review.content %></h4>
+  <p><%= review.rating %></p>
+  <br>
+<% end %>
